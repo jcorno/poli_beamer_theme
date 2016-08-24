@@ -1,0 +1,202 @@
+\mode<presentation>
+
+% ----------------------------------------------
+% COLOUR DEFINITIONS AND COLOUR SCHEMES
+% ----------------------------------------------
+%\definecolor{policolor_bg}{RGB}{114, 143, 165}
+\definecolor{policolor_bg}{RGB}{95, 124, 148}
+\definecolor{policolor_fg}{rgb}{1.0, 1.0, 1.0}
+\definecolor{darkred}{RGB}{139,4,3}
+\definecolor{shadow}{RGB}{128,128,128} 
+\definecolor{beige}{RGB}{223,232,214}
+
+\setbeamercolor{normal text}{fg=black,bg=white}
+\setbeamercolor{section in toc}{fg=policolor_bg}
+\setbeamercolor{alerted text}{fg=darkred}
+\setbeamercolor{section number projected}{bg=policolor_bg,fg=policolor_fg}
+
+\setbeamercolor*{structure}{fg=policolor_bg}
+
+\setbeamercolor*{palette primary}{use=structure,fg=white,bg=shadow}
+\setbeamercolor*{palette secondary}{use=structure,fg=white,bg=shadow}
+\setbeamercolor*{palette tertiary}{use=structure,fg=white,bg=shadow}
+\setbeamercolor*{palette quaternary}{fg=white,bg=black}
+
+\setbeamercolor*{frametitle}{use=structure,fg=policolor_fg}
+\setbeamercolor*{framesubtitle}{use=structure,fg=policolor_fg}
+
+\setbeamercolor*{fine separation line}{bg=policolor_bg}
+
+\setbeamercolor*{block body}{parent=structure,fg=black,bg=white}
+\setbeamercolor*{block body alerted}{parent=block body}
+\setbeamercolor*{block body example}{parent=block body}
+\setbeamercolor*{block title}{parent=structure,bg=policolor_bg,fg=policolor_fg}
+\setbeamercolor*{block title alerted}{use=alerted text,fg=white,bg=darkred}
+\setbeamercolor*{block title example}{use=example text,fg=white,bg=darkblue}
+\setbeamercolor*{itemize item}{fg=policolor_bg}
+\setbeamercolor*{itemize subitem}{fg=black}
+\setbeamercolor*{itemize subsubitem}{fg=black}
+\setbeamercolor*{enumerate item}{fg=policolor_fg,bg=policolor_bg}
+\setbeamercolor*{enumerate subitem}{fg=black}
+\setbeamercolor*{enumerate subsubitem}{fg=black}
+\setbeamercolor*{title}{fg=white}
+\setbeamercolor*{author}{fg=white}
+\setbeamercolor*{institute}{fg=white}
+\setbeamercolor*{titleintro}{fg=white}
+\setbeamercolor*{frametitle}{fg=white,bg=policolor_bg}
+\setbeamercolor*{author in head/foot}{fg=white}
+\setbeamercolor*{date in head/foot}{fg=white}
+\setbeamercolor*{logo}{fg=white}
+\setbeamercolor*{title in head/foot}{fg=policolor_bg}
+\setbeamercolor*{footline}{fg=white,bg=policolor_bg}
+\setbeamercolor*{bibliography entry author}{fg=policolor_bg}
+
+% ----------------------------------------------
+% SET FONTS
+% ----------------------------------------------
+\RequirePackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\setbeamerfont*{title}{size=\LARGE,series=\bfseries}
+\setbeamerfont*{logo}{size=\large,series=\bfseries}
+\setbeamerfont*{subtitle}{size=\normalsize}
+\setbeamerfont*{author}{size=\normalsize}
+\setbeamerfont*{date}{size=\normalsize}
+\setbeamerfont*{institute}{size=\footnotesize,shape=\it}
+\setbeamerfont*{frametitle}{size=\Huge,series=\bfseries}
+\setbeamerfont*{pagenumber}{size=\normalsize,series=\bfseries}
+\setbeamerfont*{footline}{size=\normalsize}
+\setbeamerfont*{alerted text}{series=\bfseries}
+\setbeamerfont*{alerted text}{shape=\bf}
+\setbeamerfont*{block title}{shape=\bf,size=\large,parent={structure,block body}}
+\setbeamerfont*{block title alerted}{parent={block title,alerted text}}
+\setbeamerfont*{block title example}{parent={block title,example text}}
+
+% ----------------------------------------------
+% SET MARGINS
+% ----------------------------------------------
+\setbeamersize{text margin left=1.5em,text margin right=1em}
+
+% ----------------------------------------------
+% IMAGES
+% ----------------------------------------------
+\pgfdeclareimage[width=\paperwidth]{bg_title_pic}{polimi_title_background}
+\pgfdeclareimage[width=.3\paperwidth]{logo_foot}{logo_transparent}
+\pgfdeclareimage[width=\paperwidth]{decoration}{decoration_white_small}
+
+\defbeamertemplate*{background canvas}{poli theme titlepage}{\pgfuseimage{bg_title_pic}}
+
+% ----------------------------------------------
+% TITLE PAGE COMMAND
+% ----------------------------------------------
+\newcommand{\polititlepage}{%
+{% open a TeX group to keep changes local
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{background canvas}[poli theme titlepage]
+\setbeamertemplate{footline}[poli theme titlepage]
+\setbeamertemplate{title page}[poli theme titlepage]
+\begin{frame}%
+\titlepage%
+\end{frame}%
+}%
+}
+
+% ----------------------------------------------
+% TITLEPAGE STYLE
+% ----------------------------------------------
+\defbeamertemplate*{title page}{poli theme titlepage}
+{%
+  \vspace{.55\paperheight}
+    \begin{beamercolorbox}{title} 
+    	\center
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx%
+      	\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%     
+    \end{beamercolorbox}
+		\par
+    \begin{beamercolorbox}{author}
+    	\center
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \par
+    \begin{beamercolorbox}{institute}
+    	\center
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+}
+
+% ----------------------------------------------
+% TITLEPAGE FOOTLINE
+% ----------------------------------------------
+\defbeamertemplate*{footline}{poli theme titlepage}
+{%
+  \nointerlineskip
+  \begin{beamercolorbox}[ht=5pt,wd=\paperwidth]{date in head/foot}
+    \hfill\raisebox{.3em}[0pt][0pt]{\insertdate\quad}
+  \end{beamercolorbox}
+}
+
+% ----------------------------------------------
+% STANDARD HEADER
+% ----------------------------------------------
+\defbeamertemplate*{frametitle}{poli theme}
+{
+  \nointerlineskip
+  \vbox{%
+  \begin{beamercolorbox}[sep=.4cm,ht=2em,wd=\paperwidth]{frametitle}
+    \vbox{}\vskip-2ex%
+    \strut\insertframetitle\strut
+    \vskip-0.8ex%
+  \end{beamercolorbox}
+  \nointerlineskip\vskip-1pt
+  \begin{beamercolorbox}[ht=5pt,wd=\paperwidth]{frametitle}
+    \raisebox{-1pt}[0pt][0pt]{\pgfuseimage{decoration}}
+  \end{beamercolorbox}
+  }
+}
+
+% ----------------------------------------------
+% STANDARD FOOTLINE
+% ----------------------------------------------
+\defbeamertemplate*{footline}{poli theme}
+{%
+	\leavevmode%
+	\hbox{%
+	\begin{beamercolorbox}[sep=.1cm,ht=2em,wd=\paperwidth]{footline}
+		\raisebox{.2em}[0pt][0pt]{\quad\insertshortauthor~$-$~\insertshorttitle~$-$~\insertframenumber\,/\,\inserttotalframenumber}\hfill\raisebox{.2em}[0pt][0pt]{\pgfuseimage{logo_foot}\quad}
+  \end{beamercolorbox}
+  }%
+}
+
+% ----------------------------------------------
+% STANDARD FOOTLINE (no total number of slides)
+% ----------------------------------------------
+\defbeamertemplate*{footline}{poli theme nototalnumber}
+{%
+	\leavevmode%
+	\hbox{%
+	\begin{beamercolorbox}[sep=.1cm,ht=2em,wd=\paperwidth]{footline}
+		\raisebox{.2em}[0pt][0pt]{\quad\insertshortauthor~$-$~\insertshorttitle~$-$~\insertframenumber}\hfill\raisebox{.2em}[0pt][0pt]{\pgfuseimage{logo_foot}\quad}
+  \end{beamercolorbox}
+  }%
+}
+
+% ----------------------------------------------
+% STANDARD FOOTLINE (no pagenumbering)
+% ----------------------------------------------
+\defbeamertemplate*{footline}{poli theme noslidenumber}
+{%
+	\leavevmode%
+	\hbox{%
+	\begin{beamercolorbox}[sep=.1cm,ht=2em,wd=\paperwidth]{footline}
+		\raisebox{.2em}[0pt][0pt]{\quad\insertshortauthor~$-$~\insertshorttitle}\hfill\raisebox{.2em}[0pt][0pt]{\pgfuseimage{logo_foot}\quad}
+  \end{beamercolorbox}
+  }%
+}
+
+\mode
+<all>

@@ -1,0 +1,135 @@
+\documentclass[british,xcolor={dvipsnames},9pt]{beamer}
+\day=16 \month=12 \year=1988
+\mode<presentation>
+{
+  \usetheme{poli}
+}
+
+% INSERT ALL YOUR FANCY PACKAGES HERE
+\usepackage[british]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage{multimedia}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{import}
+\usepackage{epstopdf}
+\usepackage{graphicx}
+\usepackage{colortbl}
+\usepackage{animate}
+\usepackage{lipsum}
+
+% ADD ADDITIONAL COLORS TO THE POLI THEME ONES
+\definecolor{lightgray}{rgb}{.37, .49, .58}
+
+% CHOOSE/CHANGE PREDEFINED BEAMER TEMPLATES
+\useinnertheme{circles}
+\usefonttheme[onlymath]{serif}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{sections/subsections in toc}[circle]
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamertemplate{background canvas}{}
+\setbeamertemplate{footline}[poli theme]
+
+% TITLE AND AUTHOR INFO
+\date[Politecnico di Milano]{\color{white}{Milano, 16.12.1988}}
+
+\title[Short Example Title]{Example for the PoliMi Beamer Template} 
+	
+\author[J. Corno]{\underline{J. Corno}$^{1,2,3}$, Author2$^{2}$ and Author3$^{3}$}
+
+\institute[Politecnico di Milano]{
+  \mbox{$^1$ Affiliation 1}\\
+	\mbox{$^2$ Affiliation 2}\\
+	\mbox{$^3$ Affiliation 3}}
+
+\begin{document}
+
+\polititlepage
+
+\section{Introduction}
+% TOC frame at the beginning of a new section
+\input{toc_frame}
+
+% --------------------
+% FRAME 1
+% --------------------
+\begin{frame}
+	\frametitle{Introduction 1}
+	
+	\lipsum[1]	
+\end{frame}
+
+
+\section{Very Nice Section}
+% TOC frame at the beginning of a new section
+\input{toc_frame}
+
+% --------------------
+% FRAME 2
+% --------------------
+\begin{frame}
+	\frametitle{Interesting stuff}
+	
+	\begin{itemize}
+	\item \lipsum[6]
+	\pause
+	\item \lipsum[9]
+\end{itemize}		
+\end{frame}
+
+
+\section{Complicated Stuff}
+% TOC frame at the beginning of a new section
+\input{toc_frame}
+
+
+\section{Nice Pictures}
+% TOC frame at the beginning of a new section
+\input{toc_frame}
+
+
+\section{Outlook and Conclusions}
+% --------------------
+% CONCLUSIONS
+% --------------------
+\begin{frame}
+	\frametitle{Conclusions}
+	\begin{itemize}
+	  \item Item 1
+		\item Item 2
+		\item Item 3
+	\end{itemize}
+	\pause
+	\vspace{.3cm}
+	Ongoing work
+	\begin{itemize}
+		\item Item 1
+		\item Item 2
+		\item Item 3
+	\end{itemize}
+\end{frame}
+
+
+% --------------------
+% ACKNOWLEDGMENTS
+% --------------------
+\begin{frame}
+	\frametitle{Acknowledgments}
+	This work is supported by the "Excellence Initiative" of the German Federal and State Governments and the Graduate School of Computational Engineering at Technische Universit\"at Darmstadt.
+	\vspace{.75cm}
+	The authors also thank Annalisa Buffa and Rafael V\'azquez for their help and for the fruitful discussions.
+	\vspace{.5cm}
+	{\bf Please ask questions now or contact}\\
+	\begin{itemize}
+		\item[] Jacopo Corno\\
+				\href{mailto:corno@gsc.tu-darmstadt.de}{corno@gsc.tu-darmstadt.de}\\
+				\href{mailto:jacopo1.corno@polimi.it}{jacopo1.corno@polimi.it}\\[.5em]
+				\href{http://www.graduate-school-ce.de/index.php?id=619}
+{Graduate School CE - Personal Page}\\
+	\end{itemize}
+\end{frame}
+
+\end{document}
